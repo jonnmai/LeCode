@@ -1,15 +1,33 @@
-/*
-Global
-*/
+/*Global*/
 @font-face {
-    font-family: parchemin;
-    src: url(/Font\ download/Augusta.ttf);
+    font-family: parchemin; 
+    src: url(/Font\ download/Augusta.ttf);          /* Ajout d'une police d'écriture*/
   }
 
-/* 
-Header
-*/
-.header{
+@font-face {
+    font-family: FreeBiker; 
+    src: url(/Font\ download/FreeBiker.ttf);          /* Ajout d'une police d'écriture*/
+}
+
+@font-face {
+    font-family: LemonMilk; 
+    src: url(/Font\ download/LEMONMILK.otf);          /* Ajout d'une police d'écriture*/
+}
+
+.modal{
+    padding-top: 70px;
+}
+
+.foot{
+    margin-top: 1px;
+    background-color: #3d3d3d;
+    color: aquamarine;
+}
+/*Global*/
+
+
+/* Header*/
+#header{
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -18,41 +36,111 @@ Header
     background-color: rgba(212, 25, 25, 0);
     position:fixed;
     top:0;
-    z-index: 999;
+    z-index: 1;
 }
-.header .header-logo{
+#header .header-logo{
     color:#FFFFFF;
     font-family: 'Andika New Basic', sans-serif; 
     float:left;
     margin-left: 30px;
 }
 
-.header .header-menu{
+#header .header-logo-bis{
+    color:#999999;
+    font-family: 'Andika New Basic', sans-serif; 
+    float:left;
+    margin-left: 30px;
+}
+
+#header-menu{
+    display: flex;
+}
+
+#header #header-menu{
     float: right;
     margin-right: 30px;
 }
 
-.header .header-menu a{
+#header #header-menu a{
     margin-right: 15px;
     color: #FFFFFF;
 
 }
 
-.header .header-menu a:hover{
+#header #header-menu a:hover{
     color:#D6A2E8;
 }
+/* Header*/
 
+/*Menu Hamburger*/
+            /*CACHER BOUTON "Hamburger"*/
+            #header label, #hamburger{
+                display: none;
+            }
+            /*CACHER BOUTON "Hamburger"*/
 
-/*
-Bannière
-*/
+    /*CSS ECRAN TEL*/
+    @media all and (max-width:768px) {     /*Jusqu'à 768px: ...*/
+
+        /*CACHER BOUTON GAUCHE*/
+        .header-logo, .header-logo-bis{
+            display: none;
+        }
+        /*CACHER BOUTON GAUCHE*/
+
+        /*METTRE EN VERTICAL*/
+
+        #header #header-menu{
+            float: none;
+            margin-right: 0;
+        }
+        
+        #header-menu{
+            display: block;
+        }
+        
+        #header-menu a {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        /*METTRE EN VERTICAL*/
+
+        /*MONTRER BOUTON "Hamburger"*/
+        #header label{
+            display: inline-block;
+            color: #fff;
+            background: #8a0000;
+            font-size: 1.4em;
+            font-style: normal;
+        }
+        /*MONTRER BOUTON "Hamburger"*/
+
+        /*CACHER LES BOUTONS PAR DEFAUT*/
+        #header-menu{ display: none; }
+        /*CACHER LES BOUTONS PAR DEFAUT*/
+
+        /*CLICK = MONTRER LES BOUTONS*/
+        #header input:checked ~ #header-menu{
+            display: block;
+            margin-top: -70px;  
+            background: rgba(0, 0, 0, 0.855);
+        
+        }
+        /*CLICK = MONTRER LES BOUTONS*/
+    }
+    /*CSS ECRAN TEL*/
+/*Menu Hamburger*/ 
+
+/*Bannière*/
 .banner{
     margin-top: -25px;
-    margin-bottom: -30px;
 }
 
 .banner .banner-image{
-    position: relative;
+    position: relative;       /* Position par-rapport au "flow" du doc*/
 
 }
 
@@ -60,7 +148,7 @@ Bannière
     position: absolute;
     width: 100%;
     text-align: center;
-    top: 8%;
+    top: 40%;
 }
 
 .banner .banner-content h1{
@@ -71,98 +159,223 @@ Bannière
      margin: 0 0 18px; text-shadow: 1px 0 0 #fff;
 }
 
+@media screen and (max-width:550px){
+    .banner .banner-content{
+        top: 10%;
+      
+    }
 
+    .banner .banner-content h1{
+       font-size: 1.7em;
+      
+    }
+}
+/*Bannière*/
 
+/*à propos*/
+.about #propos{
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: LemonMilk;
+    text-decoration-line:underline;
+}
 
-.behind{
-    
+@media screen and (max-width:550px){
+    .about #propos{
+        font-size: 1.1em;   
+    }
     
 }
 
-.behind-image{
-    margin-bottom: -30px;
-}
-.Bike {
-    
-    display: inline-block;
-    background-color: rgba(0,139,139,0.5);
-    border: 20px solid #000;
-    position:absolute; 
-    left:500px;
-    padding:5%;
-    margin-top: 30px;
-    
-    
-    
-}
-.Bike img{
-    width: 300px;
-    height: 300;
-    transition: transform .3s;  
+.colonnes{
+    display: flex;
 }
 
-.Bike img:hover {
-    transform: scale(1.5);
+.colonne{
+    font-size: 2em;    /*2em = 2x la taille de la police*/
+    text-align: center;
     
 }
 
-.Bike ul {
-    position: relative;
-    text-align:center;
+.colonne p{
+    
+    text-align: left;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*à propos*/
+
+
+/*
+                                            ************Page travaux************
+*/
+
+/* Conteneur principale */
+.page2{
+    display: flex;            /* établi un conteneur */
+    margin-top: -25px;
+    align-items: center;
+    justify-content: center;
+    
+    background-image: url('Pic/road.jpg');
+    background-size: 100% 100%;    /*Largeur hauteur*/
+    height: 100vh;
+
+}
+/* Conteneur principale */
+
+/*Les Images*/
+.img1{
+    width: 60%;
+    transition: transform .3s;      /*Donne un effet*/
+}
+
+.img1:hover{
+    transform: scale(1.4);
+}
+
+.img2{
+    width: 60%;
+}
+/*Les Images*/
+
+.height-100vh {
+    height: 100vh;           /* 1vh = 1% de la hauteur de la fenêtre */
+    display: flex;           /* établi le conteneur */
+    position: relative;      
+  }
+
+  .center-aligned {
+    display: flex;          /* établi le conteneur */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text1 {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    transform: translate(-30%, -20%);
+    color: #1f1c1c;
+    font-weight: bold;
+    font-size: 1.8vmax;     /* 1vmax = 1vw ou 1vh, selon la valeur la plus élevée.*/
+    text-align: center;
     font-family:"Lobster", "cursive"; 
     text-shadow: #bbb 0 0 1px, #fff 0 -1px 2px, #fff 0 -3px 2px, rgba(0,0,0,0.8) 0 10px 25px;
-    font-size: 24px;
-    bottom: 50px;
-}
-.me {
     
-    display: inline-block;
-    background-color: rgba(0,139,139,0.5);
-    border: 20px solid #000;
-    position:absolute; 
-    left:500px;
-    padding:5%;
-    margin-top: 500px;
-    height: 500px;
-    
-    
-}
-.me img{
-    width: 300px;
-    height: 300px;
-}
-
-
-
-.me .mps{
-    position:absolute;
-    top:35%;
-    left:40%;
-    text-align: center;
+  }
+  
+  .text2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);              /*Similaire à: translateX(-50%) translateY(-50%)*/
+    color: white;
+    font-weight: bold;                             /*Mettre en gras*/
     font-family: parchemin;
-    color: black;
-    transition: transform .3s;
-    font-size: 2em;
-}
-
-.me .mps a{
-    color: #000;
-}
-
-.me .mps:hover{
-    transform: scale(1.5);
-    color: #000;
+    font-size: 2vmax;      /* 1vmax = 1vw ou 1vh, selon la valeur la plus élevée.*/
+    text-align: center;
+    transition: transform .3s;                    
+  }
+/*Animation .text2*/
+.text2:hover{
+    transform: translate(-50%, -50%) scale(1.5); 
     
 }
 
-.mps a{
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 2px, transparent 3px)no-repeat;
-    background-size: 0 100%;
-    transition: background-size .3s ;
+.text2 a{
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 1px,transparent 3px)no-repeat;    /*Direction / couleur 1 / couleur 2 / ... /background-repeat: no-repeat */              
+    background-size: 0% 100%;
+    transition: background-size .4s ;
+    color: #000;
 }
 
-.mps a:hover{
+.text2 a:hover{
     background-size: 100% 100%;
+    
+}
+/*Animation .text2*/
+
+/*
+                                            ************Page travaux************
+*/
+
+/*
+                                            ************Page top 5************
+*/
+
+ol{
+    color: #fff;
+}
+ol li{
+    margin-top: 20px;
+    color: #000;
+    text-shadow: 3px 3px 0 #fff,
+   -3px -3px 0 #fff,  
+    3px -3px 0 #fff,                        /* X-Offset     Y-Offset    Blur    Color*/
+   -3px  3px 0 #fff,                        /*(DécalageX    DécalageY  "Brouillard"    Couleur)*/
+    3px  3px 0 #fff;
 }
 
+ol img{
+    width: 40%;
+    transition: 1.5s;
+}
 
+ol img:hover{
+    transform: scale(1.1) rotate(-5deg);
+    opacity: 0.3;
+}
+
+ol p{
+    color:darkgrey;
+}
+
+ol .carac, ol .desc{
+    margin-bottom: 20px;
+}
+
+.top5{
+    display: flex;
+    flex-direction: column;
+    background-color: #3d3d3d;
+    margin-top: -25px;
+}
+
+.top5 li{
+    font-size: 1.9em;
+    font-family: FreeBiker; 
+}
+.top5 h1{
+    font-size: 3em;  
+    color: #fff;
+    text-align: center; 
+    font-family: LEMONMILK;
+    
+}
+
+.conteneur{
+    display: flex;
+}
+
+.milieu{
+    transition: .5s;
+    opacity: 0;
+    align-self: center;
+}
+  
+.conteneur:hover .milieu{
+    opacity: 1;
+}
+
+.text{
+    color: white;
+    font-size: 32px;
+    padding: 16px 32px;         /* TOP BOTTOM RIGHT LEFT (quand 2 valeurs) */
+    font-family: LEMONMILK;
+}
+/*
+                                            ************Page top 5************
+*/

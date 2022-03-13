@@ -1,77 +1,104 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr">        <!--Précise la langue d'origine de la page web-->
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <meta charset="UTF-8">              <!--Spécifie l'encodage-->
         <link rel="stylesheet" href="styles.css">      <!-- Lien avec le CSS -->
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=shadow-multiple">   <!-- Ajouter une police d'écriture-->
         <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@700&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/4019e01702.js" crossorigin="anonymous"></script> <!--Ajout fontawesome-->
+        <script src="https://kit.fontawesome.com/bcb7417af2.js" crossorigin="anonymous"></script> <!--Ajout fontawesome-->
 
-        <!--  Ajout de BULMA + CSS-->
+        <!--  Ajout de BULMA -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">   
-        
-        
-        <!--  Ajout de BULMA + CSS -->
+         <!-- Ajout de BULMA -->
+
+         <!--JQuery bibliothèque-->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="main.js"></script>
+         <!--JQuery bibliothèque-->
 
         <title>BTS SN IR</title>
     </head>
     <body>
         <!-- header-->
-        <div class="block">
-            <header class="header">
-                <a href="#" class="header-logo">Mon Portfolio</a>
-                <nav class="header-menu">
-                    <a href="#">Accueil</a>
-                    <a href="#">À propos</a>
-                    <a href="#">Mes travaux</a>
-                    <a href="#">Contact</a>
+        <div class="block">                 <!--Ajoute un 'display: block;' automatiquement (BULMA)-->
+            <header id="header">
+    <label for="hamburger">&#9776;</label>
+    <input type="checkbox" id="hamburger">  <!--Ajout d'une checkbox-->
+
+                <a href="index.html" class="header-logo">Mon Site WEB</a>
+                <nav id="header-menu">
+                    <a href="index.html">Accueil</a>
+                    <a href="#propos">À propos</a>
+                    <a href="page2.html">Mes travaux</a>
                 </nav>
             </header>
         </div>
         <!-- header-->
 
         <!-- bannière -->
-        <div class=" block">
+        <div class="block">
             <div class="banner">
                 <img src="Pic/webdev.jpg" alt="Code" class="banner-image">
                 <div class="banner-content">
                     <h1 class="title is-1"> Bienvenue sur mon site</h1>
-                    <button class="button is-link">Pour me contacter</button>
+                    <button class="button is-link" id="bulma_modal_open">Pour me contacter</button>
                 </div>
             </div>
         </div>       
         <!-- bannière -->
-      
-        <!-- 2nd Partie -->
-                    <!-- target="_blank" pour ouvrir dans un nouvel onglet  -->
 
-     <div class="block">
-         <div class="behind">
-             <img src="Pic/road.jpg" alt="route" class="behind-image">
-             <div class="Bike">
-                <ul>Top 10 Motos</ul>
-                <a href="page2.html" target="_blank"> <img src="https://dd5394a0b8ca8e97ba29-abf76f3d91a2125517d6c7c409f095c7.ssl.cf1.rackcdn.com/content/common/Models/2022/47510c48-7913-4e37-80b9-3f39726995d4.png" />  </a>
-             </div>
-             <div class="me">
-                 <ul>
-                     <p class="mps"> 
-                         <a href="page3.html" target="_blank"> 
-                         Mon
-                        <br>
-                         Premier 
-                         <br>
-                        Site
-                         </a>
-                    </p>
-                 </ul>
-                <img src="Pic\parchemin.jpg"> 
-             </div>
-         </div>
-     </div>
-        <!-- 2nd Partie -->
+                <!--modal bulma-->
+            <div class="modal" id="bulma_modal">
+                <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                        <p class="modal-card-title">Contact</p>
+                        <button class="delete" aria-label="close" id="close_button"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <p>Email: jonm@live.fr</p>
+                            <p>Adresse: 42 Fausseadresse, Forbach 57600</p>
+                        </section>
+                        <footer class="modal-card-foot">
+                        <p>MAI Jonathan <br> © 2022</p>
+                        </footer>
+                    </div>
+                </div>
+                <!--modal bulma-->
+
+        <!--à propos-->
+        <div class="about">
+            <h2 id="propos">à propos</h2>
+            <div class="conteneur">
+                <div class="colonnes">
+                    <div class="colonne">
+                        <i class="fa-solid fa-person modif"></i>        <!--Logo Font Awesome-->
+                        <p>
+                            Je m'appelle Jonathan MAI, en 2021 j'ai été diplômer d'un baccaulauréat STI2D option SIN (Systèmes d'informations numériques). Actuellement je suis en BTS au lycée Condorcet de Schoeneck. 
+                        </p>
+                    </div>
+                    <div class="colonne">
+                        <i class="fa-solid fa-code-branch modif"></i>   <!--Logo Font Awesome-->
+                        <p>
+                            Passionné par l'informatique et les nouvelles technologies depuis petit, j'apprends aujourd'hui au sein de ma formation des langages informatiques tel que le C++, PHP, SQL, HTML, CSS, Ajax.
+                        </p>
+                    </div>
+                    <div class="colonne">
+                        <i class="fa-solid fa-motorcycle modif"></i>    <!--Logo Font Awesome-->
+                        <p>
+                            Un de mes passe temps favoris est la moto. Je suis en train de passé le permis A2 mais j'ai déjà été possesseur d'une 50 cm3 et d'une 125cm3 (Une Honda cb125r et une derbi).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--à propos-->
+      
+        <!--footer-->
+        <footer class="foot">
+            &copy; Jonathan Mai 2022
+        </footer>
+        <!--footer-->
     </body>
 </html>
